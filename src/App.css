@@ -1,38 +1,183 @@
-.App {
-  text-align: center;
+/* Global Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Arial", sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.app-container {
+    background-color: #ffffff; /* White background for the card */
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    transition: transform 0.2s ease; /* Smooth hover effect */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.app-container:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
 }
 
-.App-link {
-  color: #61dafb;
+/* Headings */
+h1 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+h2 {
+    font-size: 24px;
+    color: #007bff; /* Main color for city names */
+}
+
+/* Input Styles */
+.search-container {
+    display: flex; /* Use Flexbox for horizontal alignment */
+    align-items: center; /* Center items vertically */
+    margin-bottom: 15px; /* Space below the search input */
+}
+
+input {
+    flex: 1; /* Allow input to grow and take remaining space */
+    padding: 12px;
+    font-size: 16px;
+    margin-right: 10px; /* Space between input and button */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: border-color 0.3s ease; /* Smooth border color transition */
+}
+
+button {
+    padding: 12px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Button transitions */
+}
+
+input:focus {
+    border-color: #007bff; /* Change border color on focus */
+    outline: none; /* Remove default outline */
+}
+
+button:disabled {
+    background-color: #ccc;
+}
+
+button:hover:not(:disabled) {
+    background-color: #0056b3; /* Darker shade on hover */
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+/* Error Message Styles */
+.error-message {
+    color: red;
+    margin-top: 10px;
+    font-weight: bold; /* Bold error message */
+    animation: fadeIn 0.5s; /* Fade in effect for error message */
+}
+
+/* Close Button Styles */
+.close-error {
+    background-color: #e74c3c; /* Red close button */
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease; /* Close button transition */
+}
+
+.close-error:hover {
+    background-color: #c0392b; /* Darker shade on hover */
+}
+
+/* Weather Info Styles */
+.weather-info {
+    margin-top: 20px;
+}
+
+.weather-info p {
+    font-size: 18px;
+    color: #555; /* Dark gray for weather details */
+}
+
+/* Animation for error message */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* General weather info styling */
+.weather-info {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.weather-info h2 {
+    font-size: 24px;
+    color: #007bff;
+}
+
+.weather-info p {
+    font-size: 18px;
+    color: #555;
+}
+
+/* Weather icon styling */
+.weather-icon {
+    width: 100px; /* Set width for the icon */
+    height: 100px; /* Set height for the icon */
+    margin-top: 15px; /* Add space above the icon */
+    margin-bottom: 15px; /* Add space below the icon */
+    display: block; /* Ensure it's a block element */
+    margin-left: auto; /* Center the icon horizontally */
+    margin-right: auto; /* Center the icon horizontally */
+    transition: transform 0.3s ease; /* Add smooth hover effect */
+}
+
+/* Hover effect for weather icon */
+.weather-icon:hover {
+    transform: scale(1.1); /* Slightly enlarge the icon on hover */
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+    .app-container {
+        padding: 20px;
+        width: 90%;
+    }
+
+    input {
+        font-size: 14px;
+    }
+
+    button {
+        font-size: 14px;
+    }
+
+    .weather-info h2 {
+        font-size: 20px;
+    }
+
+    .weather-info p {
+        font-size: 16px;
+    }
 }
